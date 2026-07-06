@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    max-width: 1080px;
+    margin: 0 auto;
+    background-color: rgb(218, 210, 199);
+    padding-bottom: 20px; /* 맨 아래 푸터와 경계 사이의 여백 */
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.main{
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-wrapper {
+    flex: 7;
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    gap: 10px;              /* 테이블과 버튼 사이의 간격 */
+}
+
+.table-container {
+    margin: 30px;
+    padding: 20px;
+    /* flex: 7; */
+    height: 400px; 
+    overflow-y: auto; /* 이 부분이 sticky의 기준이 됩니다 */
+    /* border: 1px solid #cccccc; */
+    position: relative;
+    /* 스크롤바가 테이블 내용을 가리지 않도록 추가 */
+    will-change: transform;
+}
+
+.notice-table{
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;         /* collapse처럼 보이게 간격 제거 */
+}
+
+.notice-table td {
+    padding: 10px 20px; /* 위아래 10px, 좌우 20px */
+}
+
+.notice-table thead th {
+    position: sticky;
+    top: -20px; /* .table-container에 padding: 20px가 있으므로 -20px 보정 */
+    background: #9ab4d9;
+    z-index: 10;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.notice-table tbody td {
+    font-size: 14px;
+}
+
+.notice-table td {
+    border-bottom: 1px solid #000;
+    padding: 12px;
+    text-align: center; /* 가운데 정렬 */
+}
+
+.main .aside{
+    flex: 3;
+}
+
+.login-row {
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+    margin-bottom: 10px;  /* 아이디와 비밀번호 사이 간격 */
+}
+
+.login{
+    border: 1px solid rgb(121, 109, 93);
+    margin-top: 48px;
+    margin-right: 20px;
+    padding: 10px 10px;
+}
+
+.label {
+    display: inline-block;
+    padding: 4px 10px; /* 내부 여백 */
+    border-radius: 12px; /* 둥근 모서리 */
+    background-color: #a8bad3;
+    color: #1976d2; /* 진한 파란색 글씨 */
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.label:hover{
+    cursor: pointer;
+    scale:calc(0.98);
+    background-color: rgb(133, 178, 210); /* 연한 파란색 배경 */
+}
+
+.full-input {
+    width: 100%;
+    height: 33px;
+    padding: 5px;
+    border-radius: 4px;
+    /* margin-right: 30px; */
+    /* flex: 1;  남은 공간을 가득 채움  */
+}
+
+.loginBtn{
+    width: 100%;
+    height: 30px;
+    margin: 5px 0;
+}
+
+.login-menu{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+    gap: 8px;
+}
+
+.logout{
+    margin: 10px 10px;
+    padding: 0 10px;
+}
+
+.newClickBtn {
+    /* width: 100px; */
+    align-self: flex-end; /* 왼쪽 정렬, 오른쪽으로 옮기려면 flex-end 사용 */
+    padding: 8px 16px;
+    margin-right: 20px;
+    cursor: pointer;
+    border: 1px solid;
+}
+
+.newClickBtn.none{
+    display: none;
+}
+
+.text-clickable{
+    cursor: pointer;
+    padding: 5px;          /* 클릭 범위를 살짝 확보 */
+}
+
+.text-clickable:hover {
+  text-decoration: underline; /* 클릭 가능함을 시각적으로 강조 */
+}
+
+.footer{
+    margin-top: 50px; /* 메인 영역과 푸터 사이의 간격 (이 수치를 조절하세요) */
+    margin-bottom: 30px;
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.footer p {
+    display: inline-block;
+    width: 300px;
+    padding: 10px 0;
+    font-size: 11px;
+    border-top: 1px solid rgb(154, 142, 142);
+    border-bottom: 1px solid rgb(154, 142, 142);
+}

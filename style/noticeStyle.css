@@ -1,0 +1,82 @@
+/* 전체 컨테이너를 중앙으로 모으고 여백 확보 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.register-container {
+    max-width: 600px;
+    min-height: 360px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 살짝 그림자를 넣어 입체감 부여 */
+}
+
+.register-title {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column; /* 세로로 쌓기 */
+    gap: 15px;
+}
+
+.register-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* 입력창과 버튼을 한 줄로 정렬 */
+.btn-group {
+    display: flex;
+    justify-content: flex-start;
+    /* flex-direction: column; */
+    gap: 20px;              /* 두 버튼 사이 간격*/
+    width: 100%;
+}
+
+.register-textarea {
+    /* flex: 1; 남은 공간을 가득 채움 */
+    height: 120px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none; /* 크기 조절 불가 */
+}
+
+.btn-register {
+    width: 100px; /* 부모(register-container)의 가로폭을 100% 사용 */
+    height: 50px; /* 높이를 조금 더 확보 */
+    padding: 8px;
+    background-color: #efe7e7; /* 배경 투명 */
+    border: 1px solid #0c0a0a;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    width: 100px; /* 부모(register-container)의 가로폭을 100% 사용 */
+    height: 50px; /* 높이를 조금 더 확보 */
+    padding: 8px;
+    background-color: #efe7e7; /* 배경 투명 */
+    border: 1px solid #0c0a0a;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-cancel:hover {
+    background-color: #a8a4a4; /* 마우스 올렸을 때 색상 변경 */
+}
+
+.btn-register:hover {
+    background-color: #a8a4a4; /* 마우스 올렸을 때 색상 변경 */
+}

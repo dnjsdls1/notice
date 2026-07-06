@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 페이지</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; padding: 50px; }
+        .signup-form { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 350px; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        .error { color: red; font-size: 12px; margin-top: 5px; display: none; }
+        button { width: 100%; padding: 12px; background-color: #1976d2;; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-top: 10px; }
+        button:hover { background-color: rgb(133, 178, 210); }
+        .registerDiv{ display: inline-block; font-size: 45px; font-weight: 600px; }
+        img{ margin-left: 125px; width:50px; height: 50px; }
+        .register-id{ margin-top: 20px; }
+    </style>
+    <script src="./js/script.js"></script>
+</head>
+<body id="register">
+
+<div class="signup-form">
+    <div class="registerDiv">회원가입</div>
+    <a href="index.html"><img src="./img/home.webp" alt="돌아가기"></a>
+    <div class="input-group register-id">
+        <label>ID</label>
+        <input type="text" id="userId" placeholder="영문, 숫자 5~12자">
+        <div id="idError" class="error">ID는 영문/숫자 포함 5~12자로 입력해주세요.</div>
+    </div>
+    <div class="input-group register-pwd">
+        <label>비밀번호</label>
+        <input type="password" id="userPw" placeholder="영문, 숫자, 특수문자 포함 8자 이상">
+        <div id="pwError" class="error">비밀번호 형식이 올바르지 않습니다.</div>
+    </div>
+    <div class="input-group register-email">
+        <label>이메일</label>
+        <input type="email" id="userEmail" placeholder="example@mail.com">
+        <div id="emailError" class="error">올바른 이메일 형식이 아닙니다.</div>
+    </div>
+    <div class="input-group">
+        <label>성별</label>
+        <select id="userGender">
+            <option value="">선택하세요</option>
+            <option value="male">남성</option>
+            <option value="female">여성</option>
+        </select>
+    </div>
+    <button id="register-page-btn">회원가입</button>
+</div>
