@@ -11,9 +11,10 @@
     margin: 50px auto;
     padding: 30px;
     background-color: #f9f9f9;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 살짝 그림자를 넣어 입체감 부여 */
+    border-radius: 20px;       /* 모서리를 더 둥글게 */
+    border: none;              /* 테두리 제거 */
+    /* border: 1px solid #e0e0e0; */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* 그림자를 더 넓고 연하게 */
 }
 
 .register-title {
@@ -31,8 +32,10 @@
 .register-input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    border: 2px solid #f0f0f0;  /* 얇은 선 대신 약간 두툼하지만 연한 선 */
     border-radius: 8px;
+    transition: all 0.3s ease;  /* 입력창 전환 효과 */
 }
 
 /* 입력창과 버튼을 한 줄로 정렬 */
@@ -48,9 +51,11 @@
     /* flex: 1; 남은 공간을 가득 채움 */
     height: 120px;
     padding: 10px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    border: 2px solid #f0f0f0;  /* 얇은 선 대신 약간 두툼하지만 연한 선 */
     border-radius: 8px;
     resize: none; /* 크기 조절 불가 */
+    transition: all 0.3s ease;  /* 입력창 전환 효과 */
 }
 
 .btn-register {

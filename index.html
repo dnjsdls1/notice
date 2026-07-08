@@ -11,7 +11,10 @@
 </head>
 <body>
     <div class="wrapper">
-        <header class="header">공지사항</header>
+        <div class="header">
+            <span id="timeDiv" class="time"></span>
+            <header>공지사항</header>
+        </div>
 
         <main class="main">
             <div class="table-wrapper">
@@ -19,10 +22,10 @@
                     <table id="tableDiv" class="notice-table">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>제목</th>
-                                <th>작성자</th>
-                                <th>등록일</th>
+                                <th id="noticeNo"><span class="text-clickable">No</span></th>
+                                <th id="title"><span class="text-clickable">제목</span></th>
+                                <th id="userId"><span class="text-clickable">작성자</span></th>
+                                <th id="createAt"><span class="text-clickable">등록일</span></th>
                             </tr>
                         </thead>
                         <tbody>
