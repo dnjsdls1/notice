@@ -102,40 +102,53 @@ window.addEventListener('pageshow', function(event) {
     }
 });
 
-function bindEvents(page){
-    if(page === 'main'){
-        loginId.addEventListener('keydown', enterEvent); // 엔터
-        loginPassword.addEventListener('keydown', enterEvent); //엔터
-        newNotice.addEventListener('click', noticePageMove); // 글쓰기
-        theadEl.addEventListener('click', noticefilter); // 공지 헤더부분 클릭
-        $('#loginBtn').addEventListener('click', login); // 로그인 버튼
-        $('#id-search').addEventListener('click', idPwdSearch); //아이디 찾기
-        $('#pwd-search').addEventListener('click', idPwdSearch); // 비밀번호 찾기
-        $('#register-btn').addEventListener('click', memberRegister); // 회원가입
-        // const savedAuth = JSON.parse(localStorage.getItem('userAuth'));
-        // if(savedAuth && savedAuth.expiry) {
-            // 저장된 authData에서 만료 시간을 가져와 타이머 시작
-        // }
-        let loginCompleteId = loginSessionCheck(); // 로그인 세션 체크
-        if(loginCompleteId){
-            loginSuccessForm(loginCompleteId);
-            startLoginTimer(authData.expiry);
-        }
-    }else if(page === 'notice'){
-        $('#cancel').addEventListener('click', noticeMainMove); // 취소
-        $('#noticeInsert').addEventListener('click', noticeInsert); // 저장
-    }else{
-        $('#register-page-btn').addEventListener('click', registerPageBtn); // 회원 저장
-        registerPageId.addEventListener('keydown', (e) =>{
-            enterEvent(e, "register-page");
-        });
-        registerPagePw.addEventListener('keydown', (e) =>{
-            enterEvent(e, "register-page");
-        });
-        registerPageEmail.addEventListener('keydown', (e) =>{
-            enterEvent(e, "register-page");
-        });
+function bindEvents(page) {
+    const handlers = { 
+        'main': bindMainEvents, 
+        'notice': bindNoticeEvents, 
+        'register': bindRegisterEvents 
+    };
+    
+    // 선택한 페이지의 함수를 실행합니다.
+    // '?' 연산자는 해당 키가 없을 경우 undefined를 반환하여 에러를 방지합니다.
+    handlers[page]?.();
+}
+
+// 메인 페이지 이벤트들
+function bindMainEvents(){
+    loginId.addEventListener('keydown', enterEvent); // 엔터
+    loginPassword.addEventListener('keydown', enterEvent); //엔터
+    newNotice.addEventListener('click', noticePageMove); // 글쓰기
+    theadEl.addEventListener('click', noticefilter); // 공지 헤더부분 클릭
+    $('#loginBtn').addEventListener('click', login); // 로그인 버튼
+    $('#id-search').addEventListener('click', idPwdSearch); //아이디 찾기
+    $('#pwd-search').addEventListener('click', idPwdSearch); // 비밀번호 찾기
+    $('#register-btn').addEventListener('click', memberRegister); // 회원가입
+    // const savedAuth = JSON.parse(localStorage.getItem('userAuth'));
+    // if(savedAuth && savedAuth.expiry) {
+        // 저장된 authData에서 만료 시간을 가져와 타이머 시작
+    // }
+    let loginCompleteId = loginSessionCheck(); // 로그인 세션 체크
+    if(loginCompleteId){
+        loginSuccessForm(loginCompleteId);
+        startLoginTimer(authData.expiry);
     }
+}
+
+// 공지사항 페이지 이벤트들
+function bindNoticeEvents() {
+    $('#cancel').addEventListener('click', noticeMainMove);
+    $('#noticeInsert').addEventListener('click', noticeInsert);
+}
+
+// 회원가입 페이지 이벤트들
+function bindRegisterEvents() {
+    $('#register-page-btn').addEventListener('click', registerPageBtn);
+    
+    // 반복되는 엔터 이벤트 처리
+    [registerPageId, registerPagePw, registerPageEmail].forEach(el => {
+        el.addEventListener('keydown', (e) => enterEvent(e, "register-page"));
+    });
 }
 
 // 메인 페이지 함수
@@ -329,6 +342,7 @@ function loginSessionCheck(){
 }
 
 function startLoginTimer(expiry){
+    if(!expiry) return;
     const timerDisplay = $('#timeDiv');
     
     // 기존 타이머가 있다면 초기화
