@@ -78,7 +78,7 @@ window.addEventListener("DOMContentLoaded", function(){
         registerPageId = $('#userId');
         registerPagePw = $('#userPw');
         registerPageEmail = $('#userEmail');
-        bindEvents();
+        bindEvents('register');
     } else{ // 공지사항 등록 페이지일 때 실행
         params = new URLSearchParams(window.location.search);
         noticeNo = params.get('noticeNo');
@@ -511,7 +511,7 @@ function saveNotice(member) {
 function registerPageBtn(){
     // 초기화
     document.querySelectorAll('.error').forEach(el => el.style.display = 'none');
-
+    
     let isValid = true;
 
     // 아이디 중복 검사
@@ -536,7 +536,7 @@ function registerPageBtn(){
         $('#emailError').style.display = 'block';
         isValid = false;
     }
-
+    
     if (isValid) {
         alert(registerSuccess);
 
